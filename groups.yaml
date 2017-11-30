@@ -1,0 +1,53 @@
+ecobee:
+  view: false
+  entities:
+  - climate.main_floor
+  - climate.upstairs
+  - sensor.main_floor_temperature
+  - sensor.main_floor_humidity
+  - sensor.kitchen_temperature
+  - sensor.kitchen_humidity
+  - sensor.upstairs_temperature
+  - sensor.upstairs_humidity
+  - sensor.nursery_temperature
+  - sensor.nursery_humidity
+  - sensor.blue_room_temperature
+  - sensor.blue_room_humidity
+  - sensor.craft_room_temperature
+  - sensor.craft_room_humidity
+  name: Ecobee
+media_players:
+  view: false
+  entities:
+  - media_player.family_room_2
+  - media_player.family_room
+  - media_player.bedroom
+  - media_player.guest_room
+yw:
+  view: false
+  entities:
+  - sensor.yw_current
+  - sensor.yw_temperature
+  - sensor.yw_condition
+  - sensor.yw_temperature_min
+  - sensor.yw_temperature_max
+  - sensor.yw_humidity
+  - sensor.yw_pressure
+  - sensor.yw_visibility
+  - sensor.yw_wind_speed
+  - sensor.yw_day1_condition
+  - sensor.yw_day1_temperature_min
+  - sensor.yw_day1_temperature_max
+  - sensor.yw_day2_condition
+  - sensor.yw_day2_temperature_min
+  - sensor.yw_day2_temperature_max
+  - sensor.yw_day3_condition
+  - sensor.yw_day3_temperature_min
+  - sensor.yw_day3_temperature_max
+  - sensor.yw_day4_condition
+  - sensor.yw_day4_temperature_min
+  - sensor.yw_day4_temperature_max
+  - sensor.yw_day5_condition
+  - sensor.yw_day5_temperature_min
+  - sensor.yw_day5_temperature_max
+  name: Yahoo Weather
