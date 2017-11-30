@@ -1,0 +1,59 @@
+- id: turn_on_light_at_sunset
+  alias: 'Turn On Light at Sunset'
+  trigger:
+    platform: sun
+    # Possible values: sunset, sunrise
+    event: sunset
+    # Optional time offset. This example is 30 minutes.
+    offset: '-00:30:00'
+  action:
+    service: switch.turn_on
+    entity_id: switch.living_room_lamp
+- id: turn_off_light_at_night_weekday
+  alias: 'Turn Off Light at Night (Weekday)'
+  trigger:
+    platform: time
+    at: '23:00:00'
+  condition:
+    condition: time
+    weekday:
+      - sun
+      - mon
+      - tue
+      - wed
+      - thu
+  action:
+    service: switch.turn_off
+    entity_id: switch.living_room_lamp
+- id: turn_off_light_at_night_weekend
+  alias: 'Turn Off Light at Night (Weekend)'
+  trigger:
+    platform: time
+    at: '23:59:59'
+  condition:
+    condition: time
+    weekday:
+      - fri
+      - sat
+  action:
+    service: switch.turn_off
+    entity_id: switch.living_room_lamp
+- id: notify_low_fitbit_at_night
+  alias: 'Notify Haley of Low Fitbit at Night'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.upstairs_occupancy
+    to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{% if is_state('sensor.charge_hr_battery', 'Empty') %}true{% endif %}"
+      - condition: time
+        before: '23:59:59'
+        after: '20:30:00'
+  action:
+    service: notify.haley
+    data_template:
+      title: "Fitbit Battery Low"
+      message: "Charge your fitbit or it will die!!!"
