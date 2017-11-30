@@ -1,0 +1,6 @@
+  - platform: tplink
+    host: 10.130.1.5
+  - platform: tplink
+    host: 10.130.1.6
+  - platform: tplink
+    host: 10.130.1.7
